@@ -16,12 +16,18 @@ O desenvolvimento seguiu as melhores práticas de Ciência de Dados para evitar 
 
 ---
 
-## 📊 3. Modelos Avaliados e Métricas
-Como o conjunto de dados de *churn* é desbalanceado, a **Acurácia foi descartada** como métrica principal para evitar falsas impressões. O foco analítico recaiu sobre a **Matriz de Confusão** e o **F1-Score da Classe 1 (Churn)**.
+## 📊 3. Desempenho do Modelo
 
-* **Regressão Logística (Baseline Linear):** Excelente capacidade de captura (*Recall* alto), porém com um volume elevado de Falsos Positivos (alarmes falsos para clientes que iriam ficar).
-* **Random Forest (Espacial/Otimizado):** Escolhido como o melhor modelo corporativo. O ajuste de hiperparâmetros via Grid Search reduziu drasticamente os alarmes falsos, entregando o melhor equilíbrio entre Precisão e Sensibilidade (*F1-Score: 0.61*).
-* **Gradient Boosting:** Apresentou forte tendência conservadora, limitando a taxa de detecção de cancelamentos reais.
+Por se tratar de um projeto direto ao ponto, o foco principal foi lidar com dados desbalanceados. Por isso, a Acurácia global foi deixada em segundo plano e a avaliação foi centrada no **F1-Score da Classe 1 (Churn)**.
+
+O modelo vencedor, após a otimização de hiperparâmetros, foi o **Random Forest**, que apresentou a seguinte qualidade no conjunto de teste:
+
+* **F1-Score (Churn):** 0.61
+* **Recall (Sensibilidade):** 62% (Identificou 310 clientes que dariam churn)
+* **Precisão:** 60% (Reduziu os falsos positivos para apenas 205 alarmes falsos)
+* **Acurácia Global:** 85%
+
+Esses números mostram um modelo equilibrado e funcional, capaz de encontrar a maioria dos cancelamentos sem onerar a empresa disparando falsos alertas para a grande base de clientes retidos.
 
 ---
 
@@ -39,8 +45,3 @@ Como o conjunto de dados de *churn* é desbalanceado, a **Acurácia foi descarta
 - **Redução de Custos Operacionais:** O modelo otimizado protege o orçamento do banco, evitando o desperdício de incentivos financeiros em Falsos Positivos.
 
 ---
-
-## 🚀 6. Como Executar o Projeto
-1. Clone o repositório:
-   ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
